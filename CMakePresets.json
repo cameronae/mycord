@@ -1,0 +1,23 @@
+{
+    "version": 6,
+    "configurePresets": [
+        {
+            "name": "chat",
+            "displayName": "Chat (default)",
+            "description": "Default build without TUI",
+            "binaryDir": "${sourceDir}/build",
+            "cacheVariables": {
+                "TUI": "OFF"
+            }
+        },
+        {
+            "name": "chat-tui",
+            "displayName": "Chat with TUI",
+            "description": "Build with TUI support",
+            "binaryDir": "${sourceDir}/build-tui",
+            "cacheVariables": {
+                "TUI": "ON"
+            }
+        }
+    ]
+}
