@@ -1,14 +1,74 @@
-This is an implementation of a terminal based chat service that any users with the same endpoint can connect and message eachother.
+# mycord
 
-For functionality you could ssh onto a machine together and run server.py then each compile and build client.c
+This is an implementation of a terminal-based chat service that allows users with the same endpoint to connect and message each other.
 
-The best practice to sue this is to use ngrok.com to create a free endpoint.
+## Compiling
+
+To compile, run:
+
+```bash
+gcc client.c tui.c -o client
+```
+
+The recommended way to use this is to use ngrok.com to create a free endpoint.
+
 ## Using ngrok.com
---------------------
-Create an account and etc... \
-Once set up, run python3 server.py to start the sever and look for the port mycord is listening on \
-ex:  mycord server listening on 0.0.0.0:12345 \
-With that 12345, in another terminal window run ngrok tcp 12345 this creates the endpoint listening on that local port \
-Then ngrok will create a public url like 0.tcp.ngrok.io:12345 \
-finally run ./client --domain 0.tcp.ngrok.io --port 12345 \
-DONE
+
+1. Create an account and set up ngrok.
+2. Start the server:
+
+```bash
+python3 server.py
+```
+
+Look for the port that mycord is listening on, for example:
+
+```text
+mycord server listening on 0.0.0.0:12345
+```
+
+3. In another terminal window, run:
+
+```bash
+ngrok tcp 12345
+```
+
+This creates the endpoint listening on that local port.
+
+4. Ngrok will create a public URL like:
+
+```text
+0.tcp.ngrok.io:12345
+```
+
+5. Connect with the client:
+
+```bash
+./client --domain 0.tcp.ngrok.io --port 12345
+```
+
+## Local
+
+The other way to use mycord is to start the server and connect to the local port.
+
+```bash
+python3 server.py
+```
+
+You should see something like:
+
+```text
+mycord server listening on 0.0.0.0:12345
+```
+
+Then connect with:
+
+```bash
+./client --port 12345
+```
+
+or:
+
+```bash
+./client --port 12345 --tui
+```
